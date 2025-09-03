@@ -36,8 +36,6 @@ setup(
     'usb',
     'pyusb',
     'pyserial',
-    'lxml',
-    'pylzma',
     'pycryptodome',
     'wheel',
     'Exscript',
