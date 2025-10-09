@@ -177,7 +177,7 @@ msmids = {
     0x1B80E1: "divar",  # Snapdragon 680 4G SM6225 Codename Divar, soc_vers 0x9007, 0x45FFF000 sec.elf 64 bit, 0x10000000 dbgpolicy 64 bit
     0x1350E1: "lahaina",  # sd888, soc_vers 0x600F sm8350, SDM875
     0x1520E1: "lahaina",  # sd888
-    0x19E0E1: "lahaina",  # vordonisi 
+    0x19E0E1: "lahaina",  # vordonisi
     0x1A40E1: "Vordonisi",
     0x1420E1: "lahaina_premier",
     0x14A0E1: "SC8280X",  # soc_vers 0x6014, makena
@@ -259,10 +259,10 @@ msmids = {
     0x7BE0E1: "MSM8274_AA",
     0x8120E1: "MSM8610", # SnapDragon 200
     0x8160E1: "MSM8112", # SnapDragon 200
-    0x8170E1: "MSM8510", # Snapdragon 200   
+    0x8170E1: "MSM8510", # Snapdragon 200
     0x8100E1: "MSM8110", # Snapdragon 200
-    0x8130E1: "MSM8810", # Snapdragon 200 
-    0x8080E1: "MSM8512", # Snapdragon 200 
+    0x8130E1: "MSM8810", # Snapdragon 200
+    0x8080E1: "MSM8512", # Snapdragon 200
     0x8150E1: "MSM8612",
     0x8010E1: "MSM8626",
     0x8050E1: "MSM8926",  # SnapDragon 400

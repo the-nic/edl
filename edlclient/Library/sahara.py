@@ -211,7 +211,7 @@ class sahara(metaclass=LogBase):
         res = self.cmd_exec(exec_cmd_t.SAHARA_EXEC_CMD_READ_DEBUG_DATA)
         return res
 
-    def cmd_info(self, version):
+    def cmd_info(self, version, skip_loader=False):
         if self.enter_command_mode(version=version):
             self.serial = self.cmdexec_get_serial_num()
             self.serials = "{:08x}".format(self.serial)
@@ -250,7 +250,7 @@ class sahara(metaclass=LogBase):
                               cpustr +
                               f"PK_HASH:           0x{self.pkhash}\n" +
                               f"Serial:            0x{self.serials}\n")
-                if self.programmer == "":
+                if self.programmer == "" and not skip_loader:
                     if self.hwidstr in self.loaderdb:
                         mt = self.loaderdb[self.hwidstr]
                         unfused = False
@@ -507,7 +507,7 @@ class sahara(metaclass=LogBase):
         return False
 
     def upload_loader(self, version):
-        if self.programmer == "":
+        if not self.programmer:
             return ""
         try:
             self.info(f"Uploading loader {self.programmer} ...")
@@ -578,6 +578,7 @@ class sahara(metaclass=LogBase):
                             self.info("Loader successfully uploaded.")
                         else:
                             self.error("Error on uploading Loader.")
+                            self.cmd_reset_state_machine()
                             sys.exit(1)
                         return self.mode
                     else:
