@@ -338,9 +338,9 @@ class main(metaclass=LogBase):
                                     mode, resp = sahara_connect
                                 if mode == "sahara":
                                     mode = self.sahara.upload_loader(version=version)
-                                    if "enprg" in self.sahara.programmer.lower():
+                                    if self.sahara.programmer and "enprg" in self.sahara.programmer.lower():
                                         mode = "load_enandprg"
-                                    elif "nprg" in self.sahara.programmer.lower():
+                                    elif self.sahara.programmer and "nprg" in self.sahara.programmer.lower():
                                         mode = "load_nandprg"
                                     elif mode != "":
                                         mode = "load_" + mode
@@ -371,9 +371,9 @@ class main(metaclass=LogBase):
             print("Connection detected, quitting.")
             return self.exit(1)
         elif mode == "firehose":
-            if "enprg" in self.sahara.programmer.lower():
+            if self.sahara.programmer and "enprg" in self.sahara.programmer.lower():
                 mode = "enandprg"
-            elif "nprg" in self.sahara.programmer.lower():
+            elif self.sahara.programmer and "nprg" in self.sahara.programmer.lower():
                 mode = "nandprg"
             if mode != "firehose":
                 streaming = Streaming(self.cdc, self.sahara, self.__logger.level)
